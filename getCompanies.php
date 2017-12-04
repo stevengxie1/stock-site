@@ -10,7 +10,7 @@ $exchange_Name = $_POST['exchange_name'];
 $exchangeName = strtoupper($exchange_Name);
 //debug_to_console( "exchange_name: $exchangeName" );
 
-$sql = "SELECT DISTINCT c.company_name 
+$sql = "SELECT DISTINCT c.company_name, c.ticker_name, c.valuation, c.executive_name 
 FROM company c, stock s 
 WHERE s.ticker_name = c.ticker_name 
 AND s.exchange_name = '$exchangeName'";

@@ -17,6 +17,7 @@
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
@@ -38,7 +39,7 @@
 
     <a class='section'>
         <a id='query'>
-            <h3>I want to find... </h3>
+            <h3>Display the following... </h3>
 
             <select class="optionbox" id="exchange-option" name='exchange-option'>
                 <option value='*'>All</option>
@@ -60,34 +61,86 @@
 
             <select class="optionbox" id="day-option" name="day-option"></select>
 
-            <input type="button" id="find-button" value="Find" />
+            <div id='find-button'>Display Results</div>
+
+            <p id='raw-data'>Raw Data</p>
 
         </a>
-        <a id='result'>
-            <div class='table' name='table-container'>
-                <table id="exchangeTable" border="1">
-                    <tr id='exchange-table-header'>
-                        <th>Exchange Name</th>
-                        <th>Exchange Location</th>
-                        <th>Number of Listed</th>
-                    </tr>
-                    <tr>
-                        <td>Table cell 1</td>
-                        <td>Table cell 2</td>
-                        <td>Table cell 3</td>
-                    </tr>
-                    <tr>
-                        <td>Table cell 3</td>
-                        <td>Table cell 4</td>
-                        <td>Table cell 5</td>
-                    </tr>
-                </table>
 
-            </div>
-        </a>
+        <table class="rwd-table" id='exchange-table'>
+            <tr>
+                <th>Exchange Name</th>
+                <th>Exchange Location</th>
+                <th>Number of Listed</th>
+            </tr>
+            <tr>
+                <td data-th="Exchange Name">NYSE</td>
+                <td data-th="Exchange Location">New York</td>
+                <td data-th="Number of Listed">30</td>
+            </tr>
+        </table>
+
+        <table class="rwd-table" id='company-table'>
+            <thead>
+                <tr>
+                    <th>Company Name</th>
+                    <th>Company Ticker</th>
+                    <th>Valuation</th>
+                    <th>Executive</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-th="Ticker Name">Star Wars</td>
+                    <td data-th="Day">Adventure, Sci-fi</td>
+                    <td data-th="Type">1977</td>
+                    <td data-th="High">$460,935,665</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <table class="rwd-table" id='stock-day-table'>
+            <thead>
+                <tr>
+                    <th>Ticker Name</th>
+                    <th>Day</th>
+                    <th>Type</th>
+                    <th>High</th>
+                    <th>Low</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-th="Ticker Name">Star Wars</td>
+                    <td data-th="Day">Adventure, Sci-fi</td>
+                    <td data-th="Type">1977</td>
+                    <td data-th="High">$460,935,665</td>
+                    <td data-th="Low">$33.0</td>
+                </tr>
+            </tbody>
+
+        </table>
+
     </a>
-
+    <!-- Table template
+    <table class="rwd-table">
+        <tr>
+            <th>Movie Title</th>
+            <th>Genre</th>
+            <th>Year</th>
+            <th>Gross</th>
+        </tr>
+        <tr>
+            <td data-th="Movie Title">Star Wars</td>
+            <td data-th="Genre">Adventure, Sci-fi</td>
+            <td data-th="Year">1977</td>
+            <td data-th="Gross">$460,935,665</td>
+        </tr>
+    </table>
+     -->
     <!-- PHP FUNCTIONALITY TEST -->
+    <br>
     <?php
     echo "Page fetched at server time: " . date("h:i:sa");
     ?>
@@ -106,17 +159,17 @@
 
         <script type="text/javascript">
             $(document).ready(function (e) {
-              /*
-              //Optionbox click
-                $("#exchange-option").on('change', function () {
+                /*
+                //Optionbox click
+                  $("#exchange-option").on('change', function () {
 
-                    console.log("In exchange-option change");
-                    //Saves current exchange name
-                    var exchangeName = $(this).val();
-                    console.log("Exchange name: " + exchangeName);
-                   
-                });
-                */
+                      console.log("In exchange-option change");
+                      //Saves current exchange name
+                      var exchangeName = $(this).val();
+                      console.log("Exchange name: " + exchangeName);
+                     
+                  });
+                  */
             });
 
         </script>

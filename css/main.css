@@ -54,7 +54,8 @@ hr {
 .buttonHeader{
 	height: auto;
 	width:auto;
-	background: orange;
+    background: orange;
+    
 }
 
 .buttonHeader input{
@@ -66,6 +67,10 @@ hr {
 	text-color:white;
 	cursor:pointer;
 	padding-left:20px;
+}
+
+.buttonHeader:hover {
+    opacity: .5; -webkit-filter: grayscale(100%) sepia(100%);
 }
 
 #myStockPriceTrend{
