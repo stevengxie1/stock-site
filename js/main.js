@@ -2,6 +2,7 @@
 $(document).ready(function(){
 
     //Dynamic filling of the selection box, once clicked
+    /*
     $("#exchange-option").on('change', function() {
 
         console.log("In exchange-option change");
@@ -31,7 +32,7 @@ $(document).ready(function(){
             }
         });
     });
-
+    */
     //
     $("#company-option").on('change', function() {
 

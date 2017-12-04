@@ -41,10 +41,19 @@
             <h3>I want to find... </h3>
             
             <select class="optionbox" id="exchange-option" name='exchange-option'>
-              <option value='*'>All</option>
+                <option value='*'>All</option>
+              <!-- 
               <option value="NYSE">New York Stock Exchange</option>
               <option value="NASDAQ">NASDAQ</option>
               <option value="OTC">Over the Counter</option>
+             -->
+             <?php
+             $db = pg_connect("host=localhost port=5432 dbname=stock_db user=postgres password=12345");
+             $sql = pg_query("SELECT exchange_name from exchange");
+             while($row = pg_fetch_array($sql)){
+             echo "<option>" . $row['exchange_name'] . "</option>";
+             }
+             ?>
             </select>
 
             <select class="optionbox" id="company-option" name="company-option"></select>
