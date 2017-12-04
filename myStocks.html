@@ -59,4 +59,11 @@
           </script>
           <script src="https://www.google-analytics.com/analytics.js" async defer></script>
   </body>
+  <?php
+	 $db = pg_connect("host=localhost port=5432 dbname=final user=postgres password=yolo");
+	 $query = "SELECT * FROM company";
+	 $result = pg_query($query);
+	 $row = pg_fetch_assoc($result);
+	 echo "<p value='$row[ticker_name]'></p>";
+	 ?>
 </html>
