@@ -2,13 +2,25 @@
 $(document).ready(function(){
 
     //Dynamic filling of the selection box, once clicked
-    /*
+    
     $("#exchange-option").on('change', function() {
 
         console.log("In exchange-option change");
         //Saves current exchange name
         var exchangeName = $(this).val();
         console.log("Exchange name: " + exchangeName);
+        
+        var ajaxurl = 'getCompanies.php';
+        //data to pass
+        data = {exchange_name:exchangeName};
+
+        $.post(ajaxurl, data, function (response){
+
+            console.log("Length of recieved string: " + response.length);
+            console.log("Response: " + JSON.stringify(response));
+        });
+        
+        /*
         $.ajax({
             url: 'getCompanies.php',
             type: 'post',
@@ -31,8 +43,11 @@ $(document).ready(function(){
                 }
             }
         });
+        */
+        //Test
+        //$("#company-option").append("<option value='"+"Hi"+"'>"+"hi"+"</option>");
     });
-    */
+    
     //
     $("#company-option").on('change', function() {
 

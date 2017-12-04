@@ -4,11 +4,11 @@ include "config.php";
 // A very useful reference: http://makitweb.com/auto-populate-dropdown-with-jquery-ajax/
 
 // After selecting the exchange_name, 
-debug_to_console( "config added" );
+//debug_to_console( "config added" );
 
 $exchangeName = $_POST['exchange_name'];
 
-debug_to_console( "exchange_name: $exchangeName" );
+//debug_to_console( "exchange_name: $exchangeName" );
 
 $sql = "SELECT DISTINCT 'company_name' 
         FROM 'company' 
@@ -28,13 +28,3 @@ while( $row = pg_fetch_array($result) ){
 
 // Encoding array to json format
 echo json_encode($company_arr);
-
-
-//DEBUGGER
-function debug_to_console( $data ) {
-    $output = $data;
-    if ( is_array( $output ) )
-        $output = implode( ',', $output);
-
-    echo "<script>console.log( 'Debug Objects: " . $output . "' );</script>";
-}

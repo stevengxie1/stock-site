@@ -39,15 +39,15 @@
     <a class='section'>
         <a id='query'>
             <h3>I want to find... </h3>
-            
+
             <select class="optionbox" id="exchange-option" name='exchange-option'>
                 <option value='*'>All</option>
-              <!-- 
+                <!-- 
               <option value="NYSE">New York Stock Exchange</option>
               <option value="NASDAQ">NASDAQ</option>
               <option value="OTC">Over the Counter</option>
              -->
-             <?php
+                <?php
              $db = pg_connect("host=localhost port=5432 dbname=stock_db user=postgres password=12345");
              $sql = pg_query("SELECT exchange_name from exchange");
              while($row = pg_fetch_array($sql)){
@@ -103,11 +103,25 @@
         <script src="js/main.js"></script>
 
         <!-- JQuery  -->
+
         <script type="text/javascript">
-            $(document).ready(function(e) {
-                $("$")
+            $(document).ready(function (e) {
+              /*
+              //Optionbox click
+                $("#exchange-option").on('change', function () {
+
+                    console.log("In exchange-option change");
+                    //Saves current exchange name
+                    var exchangeName = $(this).val();
+                    console.log("Exchange name: " + exchangeName);
+                   
+                });
+                */
             });
+
         </script>
+
+        <!-- ================== END JQUERY =================== -->
 
         <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
         <script>
