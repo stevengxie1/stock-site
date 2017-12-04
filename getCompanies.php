@@ -10,11 +10,15 @@ $exchange_Name = $_POST['exchange_name'];
 $exchangeName = strtoupper($exchange_Name);
 //debug_to_console( "exchange_name: $exchangeName" );
 
-$sql = "SELECT DISTINCT c.company_name FROM company c, stock s WHERE s.ticker_name = c.ticker_name AND s.exchange_name = ".$exchangeName;
+$sql = "SELECT DISTINCT c.company_name 
+FROM company c, stock s 
+WHERE s.ticker_name = c.ticker_name 
+AND s.exchange_name = '$exchangeName'";
 
-$sql_simple = "SELECT DISTINCT company_name FROM company";
+//Test code
+//$sql_simple = "SELECT DISTINCT company_name FROM company";
 
-$result = pg_query($con, $sql_simple);
+$result = pg_query($con, $sql);
 
 $company_arr = array();
 
