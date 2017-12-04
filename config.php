@@ -1,13 +1,17 @@
 <?php
 $host = "localhost"; /* Host name */
 $user = "postgres"; /* User */
-$password = "123456"; /* Password */
+$password = "12345"; /* Password */
 $dbname = "stock_db"; /* Database name */
 
-$con = mysqli_connect($host, $user, $password,$dbname);
+debug_to_console("In config.php");
+
+//$con = pg_connect($host, $user, $password,$dbname);
+
+$con = pg_connect("host=localhost dbname=stock_db user=postgres password=12345");
 // Check connection
 if (!$con) {
- die("Connection failed: " . mysqli_connect_error());
+ die("Connection failed: " . pg_connect_error());
 }
 
 //DEBUGGER

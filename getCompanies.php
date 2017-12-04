@@ -4,7 +4,7 @@ include "config.php";
 // A very useful reference: http://makitweb.com/auto-populate-dropdown-with-jquery-ajax/
 
 // After selecting the exchange_name, 
-debug_to_console( "In config.php" );
+debug_to_console( "config added" );
 
 $exchangeName = $_POST['exchange_name'];
 
