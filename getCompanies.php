@@ -10,10 +10,7 @@ $exchangeName = $_POST['exchange_name'];
 
 //debug_to_console( "exchange_name: $exchangeName" );
 
-$sql = "SELECT DISTINCT 'company_name' 
-        FROM 'company' 
-        WHERE 'stock'.'ticker_name' = 'company'.'ticker_name' 
-        AND 'stock'.'exchange_name' = ".$exchangeName;
+$sql = "SELECT DISTINCT company_name FROM company WHERE stock.ticker_name =company.ticker_name AND stock.exchange_name = ".$exchangeName;
 
 $result = pg_query($con, $sql);
 
