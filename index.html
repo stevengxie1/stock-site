@@ -41,16 +41,10 @@
             <h3>I want to find... </h3>
             
             <select class="optionbox" id="exchange-option" name='exchange-option'>
-              <option value='all'>All</option>
-              <?php
-                require_once("../dbconnection/dbcon.php");
-                $sql="SELECT * FROM user WHERE role='Faculty'";
-                $records=mysqli_query($con,$sql);
-                while($row=mysqli_fetch_assoc($records)){
-                $name=$row['username'];
-                echo "<option value='$name'>".$name."</option>";
-                }                               
-              ?>
+              <option value='*'>All</option>
+              <option value="NYSE">New York Stock Exchange</option>
+              <option value="NASDAQ">NASDAQ</option>
+              <option value="OTC">Over the Counter</option>
             </select>
 
             <select class="optionbox" id="company-option" name="company-option"></select>
