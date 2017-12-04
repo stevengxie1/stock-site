@@ -6,22 +6,27 @@ include "config.php";
 // After selecting the exchange_name, 
 //debug_to_console( "config added" );
 
-$exchangeName = $_POST['exchange_name'];
-
+$exchange_Name = $_POST['exchange_name'];
+$exchangeName = strtoupper($exchange_Name);
 //debug_to_console( "exchange_name: $exchangeName" );
 
-$sql = "SELECT DISTINCT company_name FROM company WHERE stock.ticker_name =company.ticker_name AND stock.exchange_name = ".$exchangeName;
+$sql = "SELECT DISTINCT c.company_name FROM company c, stock s WHERE s.ticker_name = c.ticker_name AND s.exchange_name = ".$exchangeName;
 
-$result = pg_query($con, $sql);
+$sql_simple = "SELECT DISTINCT company_name FROM company";
+
+$result = pg_query($con, $sql_simple);
 
 $company_arr = array();
 
-//
-while( $row = pg_fetch_array($result) ){
-    $companyName = $row['company_name'];
-  
-    $company_arr[] = array("company_name" => $companyName);
-}
+$company_arr = pg_fetch_all($result);
+
+
+//while($row = pg_fetch_array($sql))
+// while( $row = pg_fetch_row($result) ){
+//     $companyName = $row['company_name'];
+    
+//     $company_arr[] = array("company_name" => $companyName);
+// }
 
 // Encoding array to json format
 echo json_encode($company_arr);
