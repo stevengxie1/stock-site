@@ -4,16 +4,18 @@ $(document).ready(function(){
     //Dynamic filling of the selection box, once clicked
     $("#exchange-option").on('change', function() {
 
+        console.log("In exchange-option change");
+
         var exchangeName = $(this).val();
-        
-        var ajax = new XMLHttpRequest();
-        
+        console.log("Exchange name: " + exchangeName);
         $.ajax({
             url: 'getCompanies.php',
             type: 'post',
             data: {exchange_name:exchangeName},
             dataType: 'json',
             success:function(response){
+                
+                console.log("Debugging now in main success function");
 
                 var len = response.length;
 
@@ -22,10 +24,18 @@ $(document).ready(function(){
                     var companyName = response[i]['company_name'];
                     //We use companyName for the value and option text
                     $("#company-option").append("<option value='"+companyName+"'>"+companyName+"</option>");
-
+                    //Debugging
+                    console.log("In main.js loop, company name: " + companyName);
                 }
             }
         });
+    });
+
+    //
+    $("#company-option").on('change', function() {
+
+    //    var companyName 
+
     });
 
 

@@ -155,7 +155,10 @@ textarea {
     }
 
     .optionbox{
-        width: 50px;
+        width: 150px;
+        padding: 5px;
+        margin-left: 20px;
+        margin-right: 10px;
     }
 
 
