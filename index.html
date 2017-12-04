@@ -40,16 +40,27 @@
         <a id='query'>
             <h3>I want to find... </h3>
             
-            <select class="optionbox" id="company-option" name='exchange-option'></select>
+            <select class="optionbox" id="exchange-option" name='exchange-option'>
+              <option value='all'>All</option>
+              <?php
+                require_once("../dbconnection/dbcon.php");
+                $sql="SELECT * FROM user WHERE role='Faculty'";
+                $records=mysqli_query($con,$sql);
+                while($row=mysqli_fetch_assoc($records)){
+                $name=$row['username'];
+                echo "<option value='$name'>".$name."</option>";
+                }                               
+              ?>
+            </select>
 
             <select class="optionbox" id="company-option" name="company-option"></select>
 
-            <input type="button" onclick="executeSql()" value="Find" />
+            <input type="button" id="find-button" value="Find" />
 
         </a>
         <a id='result'>
-            <div id="exchangeTable">
-                <table border="1">
+            <div class='table' name='table-container'>
+                <table id="exchangeTable" border="1">
                     <tr id='exchange-table-header'>
                         <th>Exchange Name</th>
                         <th>Exchange Location</th>
