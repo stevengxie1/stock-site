@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
+	<script src="js/main.js"></script>
+
     <!--[if lte IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
@@ -33,9 +35,25 @@
 	  <input type="button" onclick="location.href='myStocks.html';" value="My Stocks"/>
 	  <input type="button" onclick="location.href='ftcMode.html';" value="FTC Mode"/>
 	</div>
-	
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+	</script>
+ 
     <a class='section'>  
       <a id='query'>
+		<h3> Select user id: </h3>
+
+		
+		<select id="dropdownUserList1">
+		  <?php
+			 $db = pg_connect("host=localhost port=5432 dbname=final user=postgres password=yolo");
+			 $sql = pg_query("SELECT user_id from users");
+			 while($row = pg_fetch_array($sql)){
+			 echo "<option>" . $row['user_id'] . "</option>";
+			 }
+			 ?>
+		</select>
+		
 		<div id="myStockPriceTrend">
 		</div>
 	  </a>
@@ -45,18 +63,20 @@
 		</div>
 	  </a>
 	</a>
-        
-        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
-          <script src="js/plugins.js"></script>
-          <script src="js/main.js"></script>
+    
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
-          <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-          <script>
-            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
-          </script>
-          <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+      <script src="js/plugins.js"></script>
+      <script src="js/main.js"></script>
+	  <script src="js/myStock.js"></script>
+      <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+      <script>
+        window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+        ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+      </script>
+      <script src="https://www.google-analytics.com/analytics.js" async defer></script>
   </body>
+  
 </html>
