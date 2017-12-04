@@ -74,6 +74,7 @@ hr {
 #myStockListing{
 }
 
+
 /*
  * Remove the gap between audio, canvas, iframes,
  * images, videos and the bottom of their containers:
@@ -153,7 +154,9 @@ textarea {
         z-index: 1;
     }
 
-
+    .optionbox{
+        width: 50px;
+    }
 
 
 

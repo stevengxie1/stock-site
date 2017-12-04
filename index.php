@@ -31,7 +31,7 @@
     </a>
 
     <div class="buttonHeader">
-        <input type="button" onclick="location.href='index.php';" value="Exchange Info" />
+        <input type="button" onclick="location.href='index.html';" value="Exchange Info" />
         <input type="button" onclick="location.href='myStocks.html';" value="My Stocks" />
         <input type="button" onclick="location.href='ftcMode.html';" value="FTC Mode" />
     </div>
@@ -39,24 +39,31 @@
     <a class='section'>
         <a id='query'>
             <h3>I want to find... </h3>
-            <br>
+            
+            <select class="optionbox" id="company-option" name='exchange-option'></select>
+
+            <select class="optionbox" id="company-option" name="company-option"></select>
 
             <input type="button" onclick="executeSql()" value="Find" />
+
         </a>
         <a id='result'>
             <div id="exchangeTable">
                 <table border="1">
                     <tr id='exchange-table-header'>
-                        <th>Table Header</th>
-                        <th>Table Header</th>
+                        <th>Exchange Name</th>
+                        <th>Exchange Location</th>
+                        <th>Number of Listed</th>
                     </tr>
                     <tr>
                         <td>Table cell 1</td>
                         <td>Table cell 2</td>
+                        <td>Table cell 3</td>
                     </tr>
                     <tr>
                         <td>Table cell 3</td>
                         <td>Table cell 4</td>
+                        <td>Table cell 5</td>
                     </tr>
                 </table>
 
@@ -78,6 +85,12 @@
         </script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function(e) {
+                $("$")
+            });
+        </script>
 
         <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
         <script>

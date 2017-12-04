@@ -1,3 +1,6 @@
+AddType application/x-httpd-php5 .html .htm
+AddHandler application/x-httpd-php .html .htm 
+
 # Apache Server Configs v2.14.0 | MIT License
 # https://github.com/h5bp/server-configs-apache
 
