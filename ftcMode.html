@@ -35,11 +35,37 @@
 	</div>
 	
     <a class='section'>  
-      <a id='query'></a>
+      <a id='query'>
+		<!-- find list of users and number of stocks who have a share in every stock offerred by NYSE -->
+		<h2> Exchange  info </h2>
+		<br>
+		<h4> Select exchange </h4>
+		<select id="dropdownExchangeList1">
+		  <?php
+			 $db = pg_connect("host=localhost port=5432 dbname=final user=postgres password=yolo");
+			 $sql = pg_query("SELECT exchange_name from exchange");
+			 while($row = pg_fetch_array($sql)){
+			 echo "<option>" . $row['user_id'] . "</option>";
+			 }
+			 ?>
+		</select>
+		<!-- display number of stocks listed on exchange and who owns the most stock in each stock exchange -->
+	  </a>
       <a id='result'>
 	  </a>
 	</a>
-
+	
+	<h2> Company info </h2>
+	<select id="companyDropDown">
+	  <?php
+		 $db = pg_connect("host=localhost port=5432 dbname=final user=postgres password=yolo");
+		 $sql = pg_query("SELECT company_name from company");
+		 while($row = pg_fetch_array($sql)){
+		 echo '<option value=" '.$row['company_name'].' "> '.$row['company_name'].' </option>';
+		 }
+		 ?>
+	</select>
+	
         
         <script src="js/vendor/modernizr-3.5.0.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
