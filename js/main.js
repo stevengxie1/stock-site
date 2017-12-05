@@ -128,6 +128,10 @@ $(document).ready(function () {
                     );
 
                 }
+
+                //Debugging:
+                console.log(response);
+
             }
         });
 

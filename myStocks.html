@@ -16,6 +16,7 @@
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/index.css">
   </head>
   <body>
 	<script src="js/main.js"></script>
@@ -46,21 +47,43 @@
 		
 		<select id="dropdownUserList1">
 		  <?php
-			 $db = pg_connect("host=localhost port=5432 dbname=final user=postgres password=yolo");
+			 $db = pg_connect("host=localhost port=5432 dbname=stock_db user=postgres password=12345");
 			 $sql = pg_query("SELECT user_id from users");
 			 while($row = pg_fetch_array($sql)){
 			 echo "<option>" . $row['user_id'] . "</option>";
 			 }
 			 ?>
 		</select>
-	
+
 	  </a>
       <a id='result'>
 		<div id="myStockListing">
 		  <!-- filter stock listing by exchange, highest performing etc -->
 		</div>
 	  </a>
-	</a>
+  </a>
+  
+    <!-- Lists all stocks owned by user -->
+  <table class="rwd-table" id='user-table'>
+    <thead>
+        <tr>
+            <th>Ticker Name</th>
+            <th>User ID</th>
+            <th>Purchase Price</th>
+            <th>Number</th>
+        </tr>
+    </thead>  
+    <tbody>
+        <tr>
+            <td data-th="User">Placeholder</td>
+            <td>Placeholder</td>
+            <td data-th="Exchange Location">Placeholder</td>
+            <td data-th="Number of Listed">0</td>
+        </tr>
+    </tbody>
+
+  </table>
+
     
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>

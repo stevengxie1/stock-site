@@ -1,8 +1,10 @@
 <?php
-$db = pg_connect("host=localhost port=5432 dbname=final user=postgres password=yolo");
+$db = pg_connect("host=localhost port=5432 dbname=stock_db user=postgres password=12345");
 
 $userId = $_POST['user_id'];
-$sql = "SELECT number, ticker_name, purchase_price from user_shares where user_id=".$userId;
+$sql = "SELECT number, ticker_name, purchase_price 
+        from user_shares 
+        where user_id='$userId'";
 
 $result = pg_query($db, $sql);
 $company_arr = array();
