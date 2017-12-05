@@ -15,6 +15,11 @@ FROM company c, stock s
 WHERE s.ticker_name = c.ticker_name 
 AND s.exchange_name = '$exchangeName'";
 
+if($exchange_Name == '*') {
+    $sql = "SELECT DISTINCT c.company_name, c.ticker_name, c.valuation, c.executive_name 
+    FROM company c, stock s 
+    WHERE s.ticker_name = c.ticker_name";
+}
 //Test code
 //$sql_simple = "SELECT DISTINCT company_name FROM company";
 

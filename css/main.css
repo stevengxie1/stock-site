@@ -69,8 +69,8 @@ hr {
 	padding-left:20px;
 }
 
-.buttonHeader:hover {
-    opacity: .5; -webkit-filter: grayscale(100%) sepia(100%);
+.headerbutton:hover {
+    opacity: .5; -webkit-filter: grayscale(100%);
 }
 
 #myStockPriceTrend{
@@ -166,7 +166,10 @@ textarea {
         margin-right: 10px;
     }
 
-
+p {
+    padding-left: 5px;
+    padding-top: 5px;
+}
 
 
 

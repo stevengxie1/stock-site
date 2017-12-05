@@ -32,16 +32,17 @@
     </a>
 
     <div class="buttonHeader">
-        <input type="button" onclick="location.href='index.html';" value="Exchange Info" />
-        <input type="button" onclick="location.href='myStocks.html';" value="My Stocks" />
-        <input type="button" onclick="location.href='ftcMode.html';" value="FTC Mode" />
+        <input class='headerbutton' type="button" onclick="location.href='index.html';" value="Exchange Info" />
+        <input class='headerbutton' type="button" onclick="location.href='myStocks.html';" value="My Stocks" />
+        <input class='headerbutton' type="button" onclick="location.href='ftcMode.html';" value="FTC Mode" />
     </div>
 
     <a class='section'>
         <a id='query'>
-            <h3>Display the following... </h3>
+            <h1 class='title'>View Records: </h1>
 
             <select class="optionbox" id="exchange-option" name='exchange-option'>
+                <option>------</option>
                 <option value='*'>All</option>
                 <!-- 
               <option value="NYSE">New York Stock Exchange</option>
@@ -57,8 +58,10 @@
              ?>
             </select>
 
-            <select class="optionbox" id="company-option" name="company-option"></select>
-
+            <select class="optionbox" id="company-option" name="company-option">
+                <option>-----</option>
+            </select>
+            
             <select class="optionbox" id="day-option" name="day-option"></select>
 
             <div id='find-button'>Display Results</div>
@@ -66,7 +69,7 @@
             <p id='raw-data'>Raw Data</p>
 
         </a>
-
+        <!--        Temporarily not using this
         <table class="rwd-table" id='exchange-table'>
             <tr>
                 <th>Exchange Name</th>
@@ -79,7 +82,7 @@
                 <td data-th="Number of Listed">30</td>
             </tr>
         </table>
-
+        -->
         <table class="rwd-table" id='company-table'>
             <thead>
                 <tr>
