@@ -3,7 +3,8 @@
 <!--  -->
 
 <html class="no-js" lang="">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Dynamic Stock Ticker</title>
@@ -17,9 +18,10 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/index.css">
-  </head>
-  <body>
-	<script src="js/main.js"></script>
+</head>
+
+<body>
+    <script src="js/main.js"></script>
 
     <!--[if lte IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -28,76 +30,106 @@
     <!-- Add your site or application content here -->
 
     <a id='header'>
-      <h1 id='title'>DB Ticker</h1>
+        <h1 id='title'>DB Ticker</h1>
     </a>
-	
-	<div class="buttonHeader">
-	  <input type="button" onclick="location.href='index.html';" value="Exchange Info"/>
-	  <input type="button" onclick="location.href='myStocks.html';" value="My Stocks"/>
-	  <input type="button" onclick="location.href='ftcMode.html';" value="FTC Mode"/>
-	</div>
 
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
-	</script>
- 
-    <a class='section'>  
-      <a id='query'>
-		<h3> Select user id: </h3>
+    <div class="buttonHeader">
+        <input type="button" onclick="location.href='index.html';" value="Exchange Info" />
+        <input type="button" onclick="location.href='myStocks.html';" value="My Stocks" />
+        <input type="button" onclick="location.href='ftcMode.html';" value="FTC Mode" />
+    </div>
 
-		
-		<select id="dropdownUserList1">
-		  <?php
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+
+
+    </script>
+
+    <a class='section'>
+        <a id='query'>
+            <h3> Select user id: </h3>
+
+            <select class='optionbox' id="dropdownUserList1">
+                <?php
 			 $db = pg_connect("host=localhost port=5432 dbname=stock_db user=postgres password=12345");
 			 $sql = pg_query("SELECT user_id from users");
 			 while($row = pg_fetch_array($sql)){
 			 echo "<option>" . $row['user_id'] . "</option>";
 			 }
 			 ?>
-		</select>
+            </select>
+            <!--
+            <button id="find-stock-high">For my stocks, find their highest value</button>
+            -->
+            <a id='result'>
+                <div id="myStockListing">
+                    <!-- filter stock listing by exchange, highest performing etc -->
+                </div>
+            </a>
+        </a>
+      </a>
 
-	  </a>
-      <a id='result'>
-		<div id="myStockListing">
-		  <!-- filter stock listing by exchange, highest performing etc -->
-		</div>
-	  </a>
-  </a>
-  
-    <!-- Lists all stocks owned by user -->
-  <table class="rwd-table" id='user-table'>
-    <thead>
-        <tr>
-            <th>Ticker Name</th>
-            <th>User ID</th>
-            <th>Purchase Price</th>
-            <th>Number</th>
-        </tr>
-    </thead>  
-    <tbody>
-        <tr>
-            <td data-th="User">Placeholder</td>
-            <td>Placeholder</td>
-            <td data-th="Exchange Location">Placeholder</td>
-            <td data-th="Number of Listed">0</td>
-        </tr>
-    </tbody>
+        <!-- Lists all stocks owned by user -->
+        <table class="rwd-table" id='user-table'>
+            <thead>
+                <tr>
+                    <th>Ticker Name</th>
+                    <th>User ID</th>
+                    <th>Purchase Price</th>
+                    <th>Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-th="User">Placeholder</td>
+                    <td>Placeholder</td>
+                    <td data-th="Exchange Location">Placeholder</td>
+                    <td data-th="Number of Listed">0</td>
+                </tr>
+            </tbody>
+        </table>
+        <!--
+        <table class="rwd-table" id='stock-day-table'>
+            <thead>
+                <tr>
+                    <th>Ticker Name</th>
+                    <th>Day</th>
+                    <th>Type</th>
+                    <th>High</th>
+                    <th>Low</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
 
-  </table>
+                </tr>
+            </tbody>
 
-    
-    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        </table>
+      -->
+        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
 
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
-      <script src="js/plugins.js"></script>
-      <script src="js/main.js"></script>
-	  <script src="js/myStock.js"></script>
-      <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-      <script>
-        window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-        ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
-      </script>
-      <script src="https://www.google-analytics.com/analytics.js" async defer></script>
-  </body>
-  
+        <script>
+            window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')
+
+        </script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/myStock.js"></script>
+        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+        <script>
+            window.ga = function () {
+                ga.q.push(arguments)
+            };
+            ga.q = [];
+            ga.l = +new Date;
+            ga('create', 'UA-XXXXX-Y', 'auto');
+            ga('send', 'pageview')
+
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</body>
+
 </html>
