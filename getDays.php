@@ -13,7 +13,7 @@ $companyName = $_POST['company_name'];
 $sql = "SELECT sd.day, sd.ticker_name, sd.type, sd.high, sd.low
 FROM stock_day sd, company c, stock s 
 WHERE s.ticker_name = c.ticker_name 
-AND sd.ticker_name = sd.ticker_name
+AND s.ticker_name = sd.ticker_name
 AND c.company_name = '$companyName'";
 
 //Test code
